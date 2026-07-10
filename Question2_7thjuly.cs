@@ -1,27 +1,33 @@
+int Light_number;
+float total_power=0;
+int Light_no=0;
+int maintencecount =0;
+int normalcount=0;
+int energycount=0;
 
-       
-        int light_number;
-        int x=0;
-        int y=0;
-        int z=0;
-        double power=0;
-        double totalpower=0;
-        for (light_number = 1; light_number <= 30; light_number++)
-        {
-        
-        power = 80+light_number*5;
-        if (power > 180)
-        x++;
-        else if ((180 >=power)&& (power> 140))
-        y++;
-        else
-        z++;
-        totalpower+=power;
-        }
-        Console.WriteLine("the total power consumed by all lamps is:"+totalpower);
-        Console.WriteLine("the average power consumed by lamps is:"+totalpower/30);
-        Console.WriteLine("Number of lights in Maintenance Required:"+x);
-        Console.WriteLine("Number of lights in Normal Operation:"+y);
-        Console.WriteLine("Number of lights in Energy Efficient:"+z);
+for (Light_number = 1; Light_number <= 30; Light_number++)
+{
+    float Power = 80 +(Light_number*5);
 
-    
+    if (Power > 180)
+    {   maintencecount++;
+        Console.WriteLine("Maintanence is Required.");
+    }
+    else if (Power >140 && Power < 180)
+    {   normalcount++;
+        Console.WriteLine("Normal Operation");
+    }
+    else
+    {   energycount++;
+        Console.WriteLine("Energy efficient.");
+    }
+    total_power+=Power;
+    Light_no++;
+}
+Console.WriteLine("------Summary------");
+Console.WriteLine("Total Power Consumed is:"+total_power+"W");
+Console.WriteLine("Average Power Consumed:"+total_power/Light_no+"W");
+Console.WriteLine("total no of street light required maintanence:"+ maintencecount++);
+Console.WriteLine("total no of normal operation required:"+normalcount);
+Console.WriteLine("total no of energy efficient street light:"+energycount);
+
