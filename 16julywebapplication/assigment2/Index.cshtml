@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h4 class="display-6">Welcome to Department Portal</h4>
+    
+</div>
+<div><center>
+    <table border="1" cellpadding="10">
+        <tr>
+           <th>Deapartment Name</th>
+           <th>Deapartment Head</th>
+            <th>Head Contact</th>
+            <th>Head Email</th>
+        </tr>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.DepartmentName</td>
+                <td>@item.DepartmentHead</td>
+                <td>@item.HeadContact</td>
+                <td>@item.HeadEmail</td>
+
+
+
+            </tr>
+        }
+
+
+
+
+    </table>
+
+    </center>
+
+
+
+</div>
