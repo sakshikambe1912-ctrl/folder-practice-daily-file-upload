@@ -1,0 +1,36 @@
+﻿
+
+<div class="text-center">
+    <h1 class="display-6">Welcome to Employee Portal</h1>
+</div>
+<div><center>
+    <table border="1" cellpadding="10">
+       <tr>
+           <th>Employee Id</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Email</th>
+
+
+
+       </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeId</td>
+                <td>@item.Name</td>
+                <td>@item.Depratment</td>
+                <td>@item.Salary</td>
+                <td>@item.Email</td>
+
+
+            </tr>
+        }
+
+
+    </table>
+    </center>
+
+
+</div>
