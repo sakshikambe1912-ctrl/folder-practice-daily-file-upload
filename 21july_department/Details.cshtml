@@ -1,0 +1,34 @@
+﻿@model IEnumerable<_21july_department.Models.Department>
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <div style="color:green; font-weight:bold;">
+        @ViewBag.SuccessMessage
+    </div>
+    <p>Employee Name: @ViewBag.EmployeeName</p>
+    <p>Department: @ViewBag.EmployeeDepartment</p>
+}
+
+<h2>Department Details</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Department Name</th>
+            <th>Department Head</th>
+            <th>Contact Number</th>
+            <th>Head Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dept in Model)
+        {
+            <tr>
+                <td>@dept.DepartmentName</td>
+                <td>@dept.DepartmentHead</td>
+                <td>@dept.HeadContactNumber</td>
+                <td>@dept.HeadEmail</td>
+            </tr>
+        }
+    </tbody>
+</table>

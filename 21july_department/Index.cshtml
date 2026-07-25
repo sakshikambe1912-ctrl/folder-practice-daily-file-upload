@@ -1,0 +1,24 @@
+﻿@model _21july_department.Models.Employee
+
+<h2>Employee Registration</h2>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Department)
+        @Html.DropDownListFor(m => m.Department, new SelectList(new[] { "IT", "HR", "Finance" }), "-- Select Department --")
+        @Html.ValidationMessageFor(m => m.Department)
+    </div>
+
+    <!-- your other employee fields go here -->
+
+    <button type="submit">Register</button>
+}
