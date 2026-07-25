@@ -1,0 +1,22 @@
+﻿<h2>Dashboard</h2>
+<h4>Welcome @ViewBag.User</h4>
+<h4>Avalible Stationry Products</h4>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Item Id</th>
+        <th>Item Name</th>
+        <th>Item Stock</th>
+ </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <th>@item.Id</th>
+            <th>@item.Name</th>
+            <th>@item.Stock</th>
+        </tr>
+    }
+
+</table>
+<br/>
+<a asp-action="Logout" class="btn btn-danger">Logout</a>
