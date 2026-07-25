@@ -1,0 +1,95 @@
+﻿@model _22july_Manufacturing.Models.Automobile
+
+<h2>Automobile Registration</h2>
+
+@* Validation summary for any Data Annotation errors *@
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form asp-controller="Home" asp-action="Index" method="post">
+
+    <fieldset>
+        <legend>Automobile Details</legend>
+
+        <div class="form-group">
+            <label asp-for="AutomobileName"></label>
+            <input asp-for="AutomobileName" class="form-control" />
+            <span asp-validation-for="AutomobileName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RegistrationNumber"></label>
+            <input asp-for="RegistrationNumber" class="form-control" />
+            <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Manufacturer Details</legend>
+
+        <div class="form-group">
+            <label asp-for="Manufacturer.ManufacturerName"></label>
+            <input asp-for="Manufacturer.ManufacturerName" class="form-control" />
+            <span asp-validation-for="Manufacturer.ManufacturerName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Manufacturer.Country"></label>
+            <input asp-for="Manufacturer.Country" class="form-control" />
+            <span asp-validation-for="Manufacturer.Country" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Manufacturer.ContactNumber"></label>
+            <input asp-for="Manufacturer.ContactNumber" class="form-control" />
+            <span asp-validation-for="Manufacturer.ContactNumber" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Manufacturer.EmailAddress"></label>
+            <input asp-for="Manufacturer.EmailAddress" class="form-control" />
+            <span asp-validation-for="Manufacturer.EmailAddress" class="text-danger"></span>
+        </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">Register Automobile</button>
+</form>
+
+@* -------------------------------------------------------------------- *@
+@* Manufacturer details are only revealed AFTER a successful            *@
+@* automobile registration (ViewBag.RegistrationSuccess set in the      *@
+@* controller and preserved via TempData across the redirect).          *@
+@* -------------------------------------------------------------------- *@
+@if (ViewBag.RegistrationSuccess == true && ViewBag.RegisteredManufacturer != null)
+{
+    var manufacturer = ViewBag.RegisteredManufacturer as AutomobileApp.Models.Manufacturer;
+
+    <div class="alert alert-success mt-4">
+        Automobile registered successfully! Manufacturer details below.
+    </div>
+
+    <h3>Manufacturer Details</h3>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Manufacturer Name</th>
+                <th>Country</th>
+                <th>Contact Number</th>
+                <th>Email Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@manufacturer.ManufacturerName</td>
+                <td>@manufacturer.Country</td>
+                <td>@manufacturer.ContactNumber</td>
+                <td>@manufacturer.EmailAddress</td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
