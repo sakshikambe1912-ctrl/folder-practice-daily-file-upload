@@ -1,0 +1,44 @@
+﻿@model _22july_Automobile.Models.Automobile
+
+<div class="text-center">
+    <h3 class="display-4">Add Automobile</h3>   
+</div>
+<form asp-controller="Home" asp-action="Index" method="post">
+    <div>
+        <label asp-for="Id"></label>
+        <input asp-for="Id" class="form-control" />
+        <span asp-validation-for="Id" class="text-danger"></span>
+    </div>
+    <br/>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <br />
+    <div>
+        <label asp-for="Brand"></label>
+        <input asp-for="Brand" class="form-control" />
+        <span asp-validation-for="Brand" class="text-danger"></span>
+    </div>
+    <br />
+    <div>
+        <label asp-for="Model_Year"></label>
+        <input asp-for="Model_Year" class="form-control" />
+        <span asp-validation-for="Model_Year" class="text-danger"></span>
+    </div>
+    <br />
+    <div>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <br />
+    <div>
+        <label asp-for="Fuel_Type"></label>
+        <input asp-for="Fuel_Type" class="form-control" />
+        <span asp-validation-for="Fuel_Type" class="text-danger"></span>
+    </div>
+    <br />
+<button type="submit">Submit</button>
+</form>
